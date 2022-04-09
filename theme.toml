@@ -1,0 +1,11 @@
+demosite = "https://hugothemedepartment.netlify.app"
+description = "Department is a Hugo theme for academic department websites"
+features = ['responsive']
+homepage = "https://github.com/bouncmpe/hugo-theme-department/"
+min_version = "0.80.0"
+name = "Department"
+tags = ['light', 'bootstrap', 'responsive']
+
+[author]
+homepage = "https://github.com/bouncmpe/"
+name = "bouncmpe-web"

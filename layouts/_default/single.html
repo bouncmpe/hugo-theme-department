@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xl-4 order-xl-5 offset-xl-1 mb-4">
+      <div class="page-links">
+        <h6>{{ i18n "on-this-page" }}</h6>
+        {{ .TableOfContents }}
+      </div>
+      <div class="d-none d-xl-block">
+        {{partial "edit-this-content.html" . }}
+      </div>
+    </div>
+
+    <div class="col-xl-6 px-3">
+      <article class="bg-light">
+        <div class="content text-left">
+          {{.Content}}
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+{{ end }}
