@@ -1,26 +1,38 @@
 homepage:
-  other: "Anasayfa"
+  other: "anasayfa"
+
+news:
+  other: haberler
+
+upcoming:
+  other: "yakında"
 
 latest_news:
-  other: En Yeni Haberler
+  other: en yeni haberler
 
 upcoming-events:
-  other: "Gelecek Etkinlikler"
+  other: "gelecek etkinlikler"
 
 edit-this-content:
-  other: "Bu içeriği düzenle"
+  other: "bu içeriği düzenle"
 
 on-this-page:
-  other: "İçindekiler"
+  other: "içindekiler"
 
 more-news:
-  other: "Diğer Haberler"
+  other: "diğer haberler"
 
-phd-thesis-defense:
-  other: "Doktora Tezi Savunması"
+phd-defense:
+  other: "doktora tezi savunması"
 
-ms-thesis-defense:
-  other: "Yüksek Lisans Tezi Savunması"
+ms-defense:
+  other: "yüksek lisans tezi savunması"
 
 seminar:
-  other: "Seminer"
+  other: "seminer"
+
+read-full-text:
+  other: "hepsini oku"
+
+go-to-event-page:
+  other: "etkinlik detayları"

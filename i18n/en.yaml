@@ -1,26 +1,38 @@
 homepage:
-  other: "Home"
+  other: "home"
+
+news:
+  other: news
+
+upcoming:
+  other: "upcoming"
 
 latest-news:
   other: Latest News
 
 upcoming-events:
-  other: "Upcoming Events"
+  other: "upcoming events"
 
 edit-this-content:
-  other: Edit this content
+  other: edit this content
 
 on-this-page:
-  other: "On This Page"
+  other: "on this page"
 
 more-news:
-  other: "More News"
+  other: "more news"
 
-phd-thesis-defense:
+phd-defense:
   other: "PhD Thesis Defense"
 
-ms-thesis-defense:
+ms-defense:
   other: "MS Thesis Defense"
 
 seminar:
   other: "Seminar"
+
+read-full-text:
+  other: "read full text"
+
+go-to-event-page:
+  other: "go to event page"

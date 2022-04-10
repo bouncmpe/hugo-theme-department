@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top mb-5" style="background-color: #12295d;">
     <div class="container">
-        <a class="navbar-brand px-3" href="/">{{ i18n "homepage" }}</a>
+        <a class="navbar-brand px-3" href="/">{{ i18n "homepage" | title }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,10 @@
                 {{ $selected := false }}
                 {{ if eq $pageLang .Lang}}
                 <a href="{{ $translation.RelPermalink }}" class="btn btn-primary btn-sm active d-none d-lg-block"
-                    role="button" style="text-transform: uppercase;">{{ .Lang }}</a>
+                    role="button">{{ .Lang | upper }}</a>
                 {{ else }}
                 <a href="{{ $translation.RelPermalink }}" class="btn btn-primary btn-sm active d-none d-lg-block"
-                    role="button" style="text-transform: uppercase;">{{ .Lang }}</a>
+                    role="button">{{ .Lang | upper }}</a>
                 {{ end }}
                 {{ end }}
                 {{ end }}

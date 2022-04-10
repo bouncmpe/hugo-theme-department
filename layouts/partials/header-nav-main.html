@@ -15,8 +15,7 @@
                 </a>
                 <ul class="dropdown-menu bg-light border-0" aria-labelledby="navbarDropdown">
                     {{ range .Children }}
-                    <li><a class="dropdown-item {{ if $active }}active{{ end }}"
-                            href="{{ .URL | relLangURL }}">{{.Name}}</a></li>
+                    <li><a class="dropdown-item" href="{{ .URL | relLangURL }}">{{.Name}}</a></li>
                     {{ end }}
                 </ul>
             </li>
