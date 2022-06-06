@@ -36,3 +36,27 @@ read-full-text:
 
 go-to-event-page:
   other: "etkinlik detayları"
+
+full-professor:
+  other: "Prof. Dr."
+
+associate-professor:
+  other: "Doç. Dr."
+
+assistant-professor:
+  other: "Dr. Öğr. Üyesi"
+
+doctor:
+  other: Dr.
+
+faculty-members:
+  other: Tam Zamanlı Öğretim Üyeleri
+
+emeritus-members:
+  other: Emeritus Öğretim Üyeleri
+
+other-faculty-members:
+  other: Diğer Öğretim Üyeleri
+
+former-faculty-members:
+  other: Geçmiş Öğretim Üyeleri

@@ -13,6 +13,9 @@ latest-news:
 upcoming-events:
   other: "upcoming events"
 
+more-actions:
+  other: more actions
+
 edit-this-content:
   other: edit this content
 
@@ -36,3 +39,27 @@ read-full-text:
 
 go-to-event-page:
   other: "go to event page"
+
+full-professor:
+  other: Full Professor
+
+associate-professor:
+  other: Associate Professor
+
+assistant-professor:
+  other: Assistant Professor
+
+doctor:
+  other: Ph.D.
+
+faculty-members:
+  other: Faculty Members
+
+emeritus-members:
+  other: Emeritus Faculty Members
+
+other-faculty-members:
+  other: Other Faculty Members
+
+former-faculty-members:
+  other: Former Faculty Members
