@@ -1,0 +1,8 @@
+{{ $htmlTable := .Inner | markdownify }}
+{{ $old := "<table>" }}
+{{ $new := printf "<table class=\"table table-sm table-hover table-responsive\">" }}
+{{ $htmlTable := replace $htmlTable $old $new }}
+
+<semester>
+    {{ $htmlTable | htmlUnescape | safeHTML }}
+</semester>
