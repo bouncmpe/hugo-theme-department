@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+{{ $program := .Params.program }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
+            <div class="row row-cols-1 row-cols-lg-2 g-5 mb-5">
+                {{ range (index site.Data.curricula $program).semesters }}
+                {{ partial "semester.html" (dict "semester" . ) }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+</div>
+{{ end }}
