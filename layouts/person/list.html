@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            {{range .Params.sections }}
+            {{ partial "people/member-panel" (dict "panel" . ) }}
+            {{end}}
+        </div>
+    </div>
+</div>
+{{ end }}

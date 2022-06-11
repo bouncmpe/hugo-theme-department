@@ -1,0 +1,26 @@
+{{ $ctx := newScratch }}
+
+{{ $ctx.Set "categories" .panel.categories }}
+{{ $ctx.Set "members" slice }}
+
+{{ $title := .panel.title | default "Members" }}
+{{ $columns := .panel.columns | default "2" }}
+{{ $card_template := .panel.card_template | default "people/member-card" }}
+
+{{ range $key, $value := site.Data.people }}
+{{if intersect $value.categories ($ctx.Get "categories") }}
+{{ $ctx.Set "members" ($ctx.Get "members" | append $value) }}
+{{ end }}
+{{ end }}
+{{ $members := $ctx.Get "members" }}
+
+{{ if $members }}
+<h1 class="display-6 mb-4">{{ $title | title }}</h1>
+<div class="row row-cols-1 row-cols-lg-{{$columns}} g-2 mb-5">
+    {{ range $members }}
+    <div class="col">
+        {{ partial $card_template . }}
+    </div>
+    {{ end }}
+</div>
+{{end}}

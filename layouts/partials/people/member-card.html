@@ -1,0 +1,42 @@
+{{ $image_path := .image_path | default "images/person.png" }}
+{{ $image_settings := site.Params.people.image_settings | default "400x400 webp q90 smart" }}
+
+{{ $image_resource := resources.Get $image_path }}
+
+{{ if $image_resource }}
+{{ $retouched := $image_resource.Fill $image_settings }}
+{{ $image_path = $retouched.RelPermalink }}
+{{ end }}
+
+<div class="card mb-3 border-0 h-100">
+    <div class="row g-0">
+        <div class="col-4 p-4 d-none d-sm-block">
+            <img src="{{ $image_path }}" alt="{{ .name | anchorize }}" class="img-fluid rounded-3">
+        </div>
+        <div class="col-8">
+            <div class="card-body p-4">
+                <h3 class="mb-1 text-dark">{{ .name | title }}</h3>
+                <p class="mb-2 pb-1 text-dark">
+                    {{ .position | i18n | title }}
+                </p>
+                <p><small class="text-muted">{{ .email | lower }}</small></p>
+                <p class="card-text">
+                    {{range .roles }}
+                    <span class="badge bg-primary">{{ . | title }}</span>
+                    {{end}}
+                </p>
+                <p class="card-text">
+                    {{range .interests }}
+                    <span class="badge bg-primary">{{ . | title }}</span>
+                    {{end}}
+                </p>
+                <p class="card-text">
+                    {{range .links }}
+                    <a href="{{- .url -}}"><img src="/icons/{{- .icon -}}.svg" alt="{{- .identifier -}}" width="16"
+                            height="16"></a>
+                    {{ end }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
