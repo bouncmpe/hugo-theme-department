@@ -35,7 +35,7 @@
 
             {{ range $index, $element := first 1 $news }}
             {{ $img := "/images/thumbnail.svg" }}
-            {{ $resource := .Resources.GetMatch .Params.image }}
+            {{ $resource := .Resources.GetMatch (printf "*%s*" .Params.image) }}
             {{ if $resource }}
             {{ $retouched := $resource.Fill .Site.Params.cropping }}
             {{ $img = $retouched.RelPermalink }}
@@ -65,7 +65,7 @@
             <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
                 {{ range $index, $element := first 4 (after 1 $news) }}
                 {{ $img := "/images/thumbnail.svg" }}
-                {{ $resource := .Resources.GetMatch .Params.image }}
+                {{ $resource := .Resources.GetMatch (printf "*%s*" .Params.image) }}
                 {{ if $resource }}
                 {{ $retouched := $resource.Fill .Site.Params.cropping }}
                 {{ $img = $retouched.RelPermalink }}
@@ -91,7 +91,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-2 mb-5">
                 {{ range $index, $element := first 6 (after 5 $news) }}
                 {{ $img := "/images/thumbnail.svg" }}
-                {{ $resource := .Resources.GetMatch .Params.image }}
+                {{ $resource := .Resources.GetMatch (printf "*%s*" .Params.image) }}
                 {{ if $resource }}
                 {{ $retouched := $resource.Fill .Site.Params.cropping }}
                 {{ $img = $retouched.RelPermalink }}
