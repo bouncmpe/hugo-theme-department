@@ -1,0 +1,32 @@
+{{ $lang := site.Language.Lang }}
+{{ $courses := site.Data.courses }}
+<div class="col">
+    <table class="table table-sm table-hover table-responsive">
+        <thead>
+            <tr class="d-flex">
+                <th scope="col" class="col-3">Code</th>
+                <th scope="col" class="col-6">Course Title</th>
+                <th scope="col" class="col-2" style="text-align:center">Credits</th>
+                <th scope="col" class="col-1" style="text-align:center">ECTS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range .semester.courses }}
+            {{ $course := index $courses .id }}
+            {{ $language := (index $course.languages $lang) }}
+            <tr class="d-flex">
+                <th scope="row" class="col-3">{{ .id | upper }}</td>
+                <td class="col-6">{{ $language.title }}</td>
+                <th class="col-2" style="text-align:center">{{ $course.credits }}</th>
+                <th class="col-1" style="text-align:center">{{ $course.ects }}</th>
+            </tr>
+            {{ end }}
+            <tr class="d-flex">
+                <td scope="row" class="col-9"></td>
+                <th class="col-2" style="text-align:center">{{ .semester.credits }}</th>
+                <th class="col-1" style="text-align:center">{{ .semester.ects }}</th>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
