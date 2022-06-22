@@ -1,23 +1,32 @@
-<footer class="mt-auto" style="background-color: #09142e;">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <span class="text-muted">{{ replace .Site.Copyright "{year}" now.Year }}</span>
-        </div>
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#twitter"></use>
-                    </svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#instagram"></use>
-                    </svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#facebook"></use>
-                    </svg></a></li>
-        </ul>
+<div style="background-color: #09142e;" class="text-light text-muted">
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+                {{ range site.Params.footer.sections }}
+                <div class="col-12 col-md-3 mb-3">
+                    <h5 class="mb-4">{{- .title | title -}}</h5>
+                    <ul class="nav flex-column">
+                        {{ range .links }}
+                        <li class="nav-item mb-2">
+                            <a href="{{ .url }}" class="nav-link p-0 link-light text-muted">{{- .title | title -}}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+            </div>
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top ">
+                <p>{{ replace site.Copyright "{year}" now.Year }}</p>
+                <ul class="list-unstyled d-flex">
+                    {{range site.Params.social }}
+                    <li class="ms-3">
+                        <a href="{{- .url -}}">
+                            <img src="/icons/{{ .icon }}.svg" alt="{{- .identifier -}}" width="24" height="24">
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </footer>
     </div>
-</footer>
+</div>
