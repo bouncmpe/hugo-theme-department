@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+{{ $ctx := newScratch }}
+
+{{ $title := .Params.contacts_title | default "Contact People" }}
+{{ $maplink := .Params.maplink }}
+{{ $card_template := .Params.card_template | default "people/member-card" }}
+
+
+{{ range $key, $value := site.Data.people }}
+{{if intersect $value.roles (slice "contact") }}
+{{ $ctx.Set "members" ($ctx.Get "members" | append $value) }}
+{{ end }}
+{{ end }}
+{{ $members := $ctx.Get "members" }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-8">
+            <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
+            <div class="ratio ratio-16x9">
+                <iframe src="{{ $maplink }}" title="Map" allowfullscreen>></iframe>
+            </div>
+        </div>
+    </div>
+    {{ if $members }}
+    <h2 class="mt-5 mb-2">{{ $title | title }}</h2>
+    <div class="row row-cols-1 row-cols-lg-2 g-2 mb-5">
+        {{ range $members }}
+        <div class="col">
+            {{ partial $card_template . }}
+        </div>
+        {{ end }}
+    </div>
+    {{end}}
+</div>
+{{ end }}
