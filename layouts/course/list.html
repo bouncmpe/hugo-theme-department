@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+{{ $ctx := newScratch }}
+
+{{ $ctx.Set "courses" slice }}
+
+{{ $title := .Params.title | default "Course Catalogue" }}
+{{ $categories := .Params.categories | default (slice "cmpe") }}
+
+{{ range $key, $value := site.Data.courses }}
+{{if intersect $value.categories $categories }}
+{{ $ctx.Set "courses" ($ctx.Get "courses" | append $value) }}
+{{ end }}
+{{ end }}
+{{ $courses := $ctx.Get "courses" }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3 order-xl-5 offset-xl-1 mb-4">
+            <div class="page-links">
+                <h6>{{ i18n "on-this-page" | title }}</h6>
+                {{ .TableOfContents }}
+            </div>
+            <div class="d-none d-xl-block">
+                {{ partial "edit-this-content.html" . }}
+            </div>
+        </div>
+
+        {{ if $courses }}
+        <div class="col-xl-6">
+            <h1 class="display-6 mb-4">{{ $title | title }}</h1>
+            <div class="list-group">
+                {{ range $courses }}
+                {{ $lang := site.Language.Lang }}
+                {{ $language := (index .languages $lang) }}
+                <a href="#{{ .id | lower }}" class="list-group-item list-group-item-action border-0 mb-5"
+                    aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ .id | upper }}</h5>
+                        <span>({{ .hours }}) Credits {{ .credits }} ECTS {{ .ects }}</span>
+                    </div>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 id="{{ .id | lower }}" class="mb-3">{{ $language.title | title }}</h2>
+                    </div>
+                    <p class="mb-1">{{ $language.description | markdownify }}</p>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+        {{end}}
+
+
+    </div>
+</div>
+{{ end }}
