@@ -1,23 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-light ">
-
     <div class="collapse navbar-collapse" id="navbarNav">
         {{ $currentPage := . }}
         <ul class="navbar-nav ml-auto">
             {{ $current := . }}
-            {{ range .Site.Menus.main }}
+            {{ range $index, $menu := site.Menus.main }}
             {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
             {{ $active = or $active (eq .Name $current.Title) }}
-            {{ if .HasChildren }}
-            <li class="nav-item dropdown me-3">
+            {{ if $menu.Params.extended }}
+            <li class="nav-item dropdown me-3" style="position:static!important;">
                 <a class="nav-link dropdown-toggle {{ if $active }}active{{ end }}" href="#" id="navbarDropdown"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ .Name }}
                 </a>
-                <ul class="dropdown-menu bg-light border-0" aria-labelledby="navbarDropdown">
-                    {{ range .Children }}
-                    <li><a class="dropdown-item" href="{{ .URL | relLangURL }}">{{.Name}}</a></li>
-                    {{ end }}
-                </ul>
+                <div class="dropdown-menu w-100 bg-light border-0 pb-5"
+                    style="left:0; right:0; backdrop-filter: blur(10px); --bs-bg-opacity: .95;" role="menu">
+                    <h1 class="display-6 mb-4 d-none d-md-block"><a class="nav-link stretched-link"
+                            href="{{ .URL | relLangURL }}">{{- .Name -}}</a></h1>
+                    <div class="row row-cols-1 row-cols-md-4 g-5">
+                        {{ range $menu.Params.sections }}
+                        <div class="col">
+                            <p>{{ .title | upper }}</p>
+                            <ul class="list-group list-group-flush">
+                                {{ range .links }}
+                                <li class="list-group-item bg-transparent">
+                                    <a class="nav-link stretched-link" href="{{ .url | relLangURL }}">{{ .name }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
             </li>
             {{else}}
             <li class="nav-item me-3">
