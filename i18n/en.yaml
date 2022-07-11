@@ -1,6 +1,9 @@
 homepage:
   other: "home"
 
+cmpe-long:
+  other: department of computer engineering
+
 copyright:
   other: copyright
 
@@ -69,3 +72,21 @@ other-faculty-members:
 
 former-faculty-members:
   other: Former Faculty Members
+
+course-description:
+  other: description
+
+course-prerequisites:
+  other: prerequisites
+
+course-no-prerequsites:
+  other: no prerequisites
+
+course-hours:
+  other: catalogue hours
+
+course-credits:
+  other: credits
+
+course-ects:
+  other: ects

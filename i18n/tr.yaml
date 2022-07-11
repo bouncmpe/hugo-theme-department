@@ -1,6 +1,9 @@
 homepage:
   other: "anasayfa"
 
+cmpe-long:
+  other: bilgisayar mühendisliği bölümü
+
 copyright:
   other: telif hakkı
 
@@ -63,3 +66,21 @@ other-faculty-members:
 
 former-faculty-members:
   other: geçmiş öğretim üyeleri
+
+course-description:
+  other: ders tanımı
+
+course-prerequisites:
+  other: önkoşul dersleri
+
+course-no-prerequsites:
+  other: önkoşul yok
+
+course-hours:
+  other: katalog saatleri
+
+course-credits:
+  other: ders kredisi
+
+course-ects:
+  other: AKTS kredisi
