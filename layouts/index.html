@@ -1,12 +1,22 @@
 {{ define "main" }}
 
-{{ $news := where .Site.RegularPages.ByDate.Reverse "Section" "news" }}
-{{ $events := where .Site.RegularPages.ByExpiryDate "Section" "events" }}
+{{ $news := where site.RegularPages.ByDate.Reverse "Section" "news" }}
+{{ $events := where site.RegularPages.ByExpiryDate "Section" "events" }}
+
+{{ if site.Params.banner.enabled }}
+<section id="site-banner">
+    <div class="container">
+        {{ partial site.Params.banner.layout . }}
+    </div>
+</section>
+{{ end }}
 
 <div class="container">
     <div class="row">
         <div class="col-xl-4 order-xl-5 mb-5">
-
+            {{ if $events }}
+            <h1 class="display-6 mb-4">{{ i18n "upcoming-events" | title }}</h1>
+            {{ end }}
             <div class="row row-cols-1 g-2">
                 {{ range (first 6 $events) }}
                 <div class="col">
@@ -32,88 +42,31 @@
 
         </div>
         <div class="col-xl-8">
-
-            {{ range $index, $element := first 1 $news }}
-            {{ $img := "/images/thumbnail.svg" }}
-            {{ $resource := .Resources.GetMatch (printf "*%s*" .Params.image) }}
-            {{ if $resource }}
-            {{ $retouched := $resource.Fill .Site.Params.cropping }}
-            {{ $img = $retouched.RelPermalink }}
-            {{ end }}
-            <div class="card mb-4 border-0">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <img src="{{ $img }}" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-body">
-                            <p class="card-text">
-                                <span class="badge rounded-pill bg-danger text-white">{{ i18n "news" | upper }}</span>
-                            </p>
-                            <h5 class="card-title">{{ title .Title }}</h5>
-                        </div>
-                        <div class="card-body">
-                            <a href="{{.RelPermalink}}"
-                                class="card-link text-muted"><small>{{ i18n "read-full-text" | title }}</small></a>
-                        </div>
+            <section id="newsroom">
+                <h1 class="display-6 mb-4">{{ i18n "latest-news" | title }}</h1>
+                <div class="row">
+                    <div class=" col">
+                        {{ range $index, $element := first 1 $news }}
+                        {{ partial "news/news-card-first.html" . }}
+                        {{ end }}
                     </div>
                 </div>
-            </div>
-            {{ end }}
-
-
-            <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
-                {{ range $index, $element := first 4 (after 1 $news) }}
-                {{ $img := "/images/thumbnail.svg" }}
-                {{ $resource := .Resources.GetMatch (printf "*%s*" .Params.image) }}
-                {{ if $resource }}
-                {{ $retouched := $resource.Fill .Site.Params.cropping }}
-                {{ $img = $retouched.RelPermalink }}
-                {{ end }}
-                <div class="col">
-                    <div class="card border-0 h-100">
-                        <img src="{{ $img }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">
-                                <span class="badge rounded-pill bg-danger text-white">{{ i18n "news" | upper }}</span>
-                            </p>
-                            <h5 class="card-title">{{ title .Title }}</h5>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <a href="{{.RelPermalink}}"
-                                class="text-muted"><small>{{ i18n "read-full-text" | title }}</small></a>
-                        </div>
+                <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+                    {{ range $index, $element := first 4 (after 1 $news) }}
+                    <div class=" col">
+                        {{ partial "news/news-card.html" . }}
                     </div>
+                    {{ end }}
                 </div>
-                {{ end }}
-            </div>
 
-            <div class="row row-cols-1 row-cols-md-3 g-2 mb-5">
-                {{ range $index, $element := first 6 (after 5 $news) }}
-                {{ $img := "/images/thumbnail.svg" }}
-                {{ $resource := .Resources.GetMatch (printf "*%s*" .Params.image) }}
-                {{ if $resource }}
-                {{ $retouched := $resource.Fill .Site.Params.cropping }}
-                {{ $img = $retouched.RelPermalink }}
-                {{ end }}
-                <div class="col">
-                    <div class="card border-0 h-100">
-                        <img src="{{ $img }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">
-                                <span class="badge rounded-pill bg-danger text-white">{{ i18n "news" | upper }}</span>
-                            </p>
-                            <h5 class="card-title">{{ title .Title }}</h5>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <a href="{{.RelPermalink}}"
-                                class="text-muted"><small>{{ i18n "read-full-text" | title }}</small></a>
-                        </div>
+                <div class="row row-cols-1 row-cols-md-3 g-2 mb-5">
+                    {{ range $index, $element := first 6 (after 5 $news) }}
+                    <div class=" col">
+                        {{ partial "news/news-card.html" . }}
                     </div>
+                    {{ end }}
                 </div>
-                {{ end }}
-            </div>
-
+            </section>
         </div>
     </div>
 </div>
