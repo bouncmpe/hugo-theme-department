@@ -1,35 +1,38 @@
 homepage:
   other: "anasayfa"
 
+copyright:
+  other: telif hakkı
+
 news:
   other: haberler
 
 upcoming:
   other: "yakında"
 
-latest_news:
+latest-news:
   other: en yeni haberler
 
 upcoming-events:
-  other: "gelecek etkinlikler"
+  other: gelecek etkinlikler
 
 edit-this-content:
-  other: "bu içeriği düzenle"
+  other: bu içeriği düzenle
 
 on-this-page:
-  other: "içindekiler"
+  other: içindekiler
 
 more-news:
-  other: "diğer haberler"
+  other: diğer haberler
 
 phd-defense:
-  other: "doktora tezi savunması"
+  other: doktora tezi savunması
 
 ms-defense:
-  other: "yüksek lisans tezi savunması"
+  other: yüksek lisans tezi savunması
 
 seminar:
-  other: "seminer"
+  other: seminer
 
 read-full-text:
   other: "hepsini oku"
@@ -50,13 +53,13 @@ doctor:
   other: Dr.
 
 faculty-members:
-  other: Tam Zamanlı Öğretim Üyeleri
+  other: tam zamanlı öğretim üyeleri
 
 emeritus-members:
-  other: Emeritus Öğretim Üyeleri
+  other: emeritus öğretim üyeleri
 
 other-faculty-members:
-  other: Diğer Öğretim Üyeleri
+  other: diğer öğretim üyeleri
 
 former-faculty-members:
-  other: Geçmiş Öğretim Üyeleri
+  other: geçmiş öğretim üyeleri

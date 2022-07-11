@@ -1,17 +1,26 @@
 homepage:
   other: "home"
 
+copyright:
+  other: copyright
+
 news:
   other: news
 
-upcoming:
-  other: "upcoming"
-
 latest-news:
-  other: Latest News
+  other: latest news
+
+more-news:
+  other: "more news"
+
+events:
+  other: events
 
 upcoming-events:
-  other: "upcoming events"
+  other: upcoming events
+
+upcoming:
+  other: upcoming
 
 more-actions:
   other: more actions
@@ -21,9 +30,6 @@ edit-this-content:
 
 on-this-page:
   other: "on this page"
-
-more-news:
-  other: "more news"
 
 phd-defense:
   other: "PhD Thesis Defense"
