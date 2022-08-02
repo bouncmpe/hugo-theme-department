@@ -7,6 +7,15 @@ cmpe-long:
 copyright:
   other: telif hakkı
 
+date:
+  other: tarih
+
+start-time:
+  other: başlama vakti
+
+duration:
+  other: süre
+
 news:
   other: haberler
 
@@ -19,8 +28,26 @@ latest-news:
 upcoming-events:
   other: gelecek etkinlikler
 
+who:
+  other: kim
+
+when:
+  other: ne zaman
+
+where:
+  other: nerede
+
 links:
   other: bağlantılar
+
+phd-candidate:
+  other: doktora adayı
+
+thesis-defender:
+  other: tez sahibi
+
+add-calendar:
+  other: "takvimime ekle"
 
 edit-this-content:
   other: bu içeriği düzenle
@@ -31,10 +58,10 @@ on-this-page:
 more-news:
   other: diğer haberler
 
-phd-defense:
+phd-thesis-defense:
   other: doktora tezi savunması
 
-ms-defense:
+ms-thesis-defense:
   other: yüksek lisans tezi savunması
 
 seminar:

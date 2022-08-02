@@ -7,6 +7,15 @@ cmpe-long:
 copyright:
   other: copyright
 
+date:
+  other: date
+
+start-time:
+  other: start time
+
+duration:
+  other: duration
+
 news:
   other: news
 
@@ -28,6 +37,21 @@ upcoming:
 links:
   other: links
 
+who:
+  other: who
+
+when:
+  other: when
+
+where:
+  other: where
+
+phd-candidate:
+  other: PhD Candidate
+
+thesis-defender:
+  other: thesis defender
+
 more-actions:
   other: more actions
 
@@ -37,10 +61,10 @@ edit-this-content:
 on-this-page:
   other: "on this page"
 
-phd-defense:
+phd-thesis-defense:
   other: "PhD Thesis Defense"
 
-ms-defense:
+ms-thesis-defense:
   other: "MS Thesis Defense"
 
 seminar:
@@ -51,6 +75,9 @@ read-full-text:
 
 go-to-event-page:
   other: "go to event page"
+
+add-calendar:
+  other: "add to my calendar"
 
 full-professor:
   other: Full Professor

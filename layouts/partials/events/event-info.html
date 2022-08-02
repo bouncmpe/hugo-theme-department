@@ -1,6 +1,6 @@
 {{ $event_start_time_string := printf "%sT%s:00" (.ExpiryDate.Format "2006-01-02") ( .Params.startTime )}}
 {{ $event_start_time := time $event_start_time_string }}
-{{ $event_location := .Params.location | default "Unknown Location" | markdownify }}
+{{ $event_location := .Params.location | default "Unknown" | markdownify }}
 
 <dl class="row">
     <dt class="col-sm-3"><small>{{ i18n "who" | title }}</small></dt>

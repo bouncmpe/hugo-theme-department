@@ -3,7 +3,7 @@
 
 {{ $event_title := .Params.title }}
 {{ $event_description := .Params.description }}
-{{ $event_location := .Params.location | default "Unknown Location" }}
+{{ $event_location := .Params.location | default "Unknown" }}
 
 {{ $google_start_time_string := $event_start_time.Format "20060102T150405"}}
 
@@ -26,7 +26,7 @@
     </div>
     <div class="card-footer bg-white text-end">
         <a href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ i18n .Type | title }} - {{ .Params.speaker }}&dates={{ $google_start_time_string }}/{{ $google_start_time_string }}&details={{$event_title}}&location={{$event_location}}&trp=false&sprop=&sprop=name:"
-            class="card-link" target="_blank" rel="nofollow"><small>{{ "add-calendar" | humanize }}</small></a>
+            class="card-link" target="_blank" rel="nofollow"><small>{{ i18n "add-calendar" | title }}</small></a>
     </div>
 
 </div>
