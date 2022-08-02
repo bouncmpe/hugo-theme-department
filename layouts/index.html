@@ -13,61 +13,45 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xl-4 order-xl-5 mb-5">
+        <section id="event-board" class="col-xl-4 order-xl-5 mb-5">
             {{ if $events }}
-            <h1 class="display-6 mb-4">{{ i18n "upcoming-events" | title }}</h1>
+            <h1 class="display-6  mb-4">{{ i18n "upcoming-events" | title }}</h1>
             {{ end }}
             <div class="row row-cols-1 g-2">
                 {{ range (first 6 $events) }}
                 <div class="col">
-                    <div class="card border-0 h-100">
-                        <div class="card-body">
-                            <p class="card-text">
-                                <span
-                                    class="badge rounded-pill bg-warning text-dark">{{ i18n "upcoming" | upper }}</span>
-                                <span class="badge rounded-pill bg-primary text-white">{{ i18n .Type | upper }}</span>
-                            </p>
-                            <h5 class="card-title">{{ title .Title }}</h5>
-                            <span>{{ .Params.speaker }}</span>
-                            <p class="card-text"><time>{{ .ExpiryDate.Format "Monday 2 January, 2006" }}</time></p>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <a href="{{.RelPermalink}}"
-                                class="text-muted"><small>{{ i18n "go-to-event-page" | title }}</small></a>
-                        </div>
-                    </div>
+                    {{ partial "events/event-card.html" . }}
                 </div>
                 {{end}}
             </div>
+        </section>
+        <section id="newsroom" class="col-xl-8">
+            <h1 class="display-6 mb-4">{{ i18n "latest-news" | title }}</h1>
 
-        </div>
-        <div class="col-xl-8">
-            <section id="newsroom">
-                <h1 class="display-6 mb-4">{{ i18n "latest-news" | title }}</h1>
-                <div class="row">
-                    <div class=" col">
-                        {{ range $index, $element := first 1 $news }}
-                        {{ partial "news/news-card-first.html" . }}
-                        {{ end }}
-                    </div>
-                </div>
-                <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
-                    {{ range $index, $element := first 4 (after 1 $news) }}
-                    <div class=" col">
-                        {{ partial "news/news-card.html" . }}
-                    </div>
+            <div class="row">
+                <div class=" col">
+                    {{ range $index, $element := first 1 $news }}
+                    {{ partial "news/news-card-first.html" . }}
                     {{ end }}
                 </div>
+            </div>
 
-                <div class="row row-cols-1 row-cols-md-3 g-2 mb-5">
-                    {{ range $index, $element := first 6 (after 5 $news) }}
-                    <div class=" col">
-                        {{ partial "news/news-card.html" . }}
-                    </div>
-                    {{ end }}
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+                {{ range $index, $element := first 4 (after 1 $news) }}
+                <div class=" col">
+                    {{ partial "news/news-card.html" . }}
                 </div>
-            </section>
-        </div>
+                {{ end }}
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-2 mb-5">
+                {{ range $index, $element := first 6 (after 5 $news) }}
+                <div class=" col">
+                    {{ partial "news/news-card.html" . }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
     </div>
 </div>
 

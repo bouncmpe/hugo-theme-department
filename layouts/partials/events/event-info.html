@@ -1,0 +1,15 @@
+{{ $event_start_time_string := printf "%sT%s:00" (.ExpiryDate.Format "2006-01-02") ( .Params.startTime )}}
+{{ $event_start_time := time $event_start_time_string }}
+{{ $event_location := .Params.location | default "Unknown Location" | markdownify }}
+
+<dl class="row">
+    <dt class="col-sm-3"><small>{{ i18n "who" | title }}</small></dt>
+    <dd class="col-sm-9">{{.Params.speaker}}</dd>
+    <dt class="col-sm-3"><small>{{ i18n "when" | title }}</small></dt>
+    <dd class="col-sm-9">
+        <time>{{ time.Format "2 January" $event_start_time }}</time> @
+        <time>{{ time.Format "15:04" $event_start_time }}</time>
+    </dd>
+    <dt class="col-sm-3"><small>{{ i18n "where" | title }}</small></dt>
+    <dd class="col-sm-9">{{ $event_location }}</dd>
+</dl>
