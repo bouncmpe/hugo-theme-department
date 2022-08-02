@@ -1,11 +1,15 @@
 // Boğaziçi color palette
 $primary: #1e4a8b;
 $secondary: #8cc8ea;
+$light: #f5f5f7;
+
+$color-gray-10: #f4f4f4;
+$color-gray-90: #262626;
+$color-gray-100: #161616;
 
 @import "bootstrap/_functions";
 
-$body-bg: #fff;
-$body-color: #111;
+$body-bg:$light;
 
 $component-active-bg: $primary;
 $component-active-color: $body-bg;
@@ -14,6 +18,11 @@ $table-hover-bg: $primary;
 $table-hover-color: $body-bg;
 
 $list-group-hover-bg: $primary;
-$list-group-hover-color: $body-bg;
+$list-group-action-color: $light;
+$list-group-active-bg: $secondary;
+$list-group-active-color: $primary;
+
+$font-size-base: 1.1rem;
+$badge-border-radius: 0;
 
 @import "bootstrap/bootstrap";
