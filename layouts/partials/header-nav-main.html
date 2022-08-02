@@ -10,10 +10,10 @@
             <li class="nav-item dropdown me-3" style="position:static!important;">
                 <a class="nav-link dropdown-toggle {{ if $active }}active{{ end }}" href="#" id="navbarDropdown"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ .Name }}
+                    <small>{{ .Name | upper }}</small>
                 </a>
-                <div class="dropdown-menu w-100 border-0 pb-5"
-                    style="left:0; right:0; backdrop-filter: blur(10px); --bs-bg-opacity: .95;" role="menu">
+                <div class="dropdown-menu w-100 border-0 pt-3 pe-4 ps-4 pb-4"
+                    style="left:0; right:0; backdrop-filter: blur(10px); --bs-bg-opacity: .15;" role="menu">
                     <h1 class="display-6 mb-4 d-none d-md-block"><a class="nav-link stretched-link"
                             href="{{ .URL | relLangURL }}">{{- .Name -}}</a></h1>
                     <div class="row row-cols-1 row-cols-md-4 g-5">
@@ -35,7 +35,7 @@
             {{else}}
             <li class="nav-item me-3">
                 <a class="nav-link {{ if $active }}active{{ end }}" href="{{ .URL | relLangURL }}">
-                    {{ .Name }}
+                    <small>{{ .Name | upper }}</small>
                 </a>
             </li>
             {{end}}
