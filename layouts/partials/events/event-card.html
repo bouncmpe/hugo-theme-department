@@ -6,7 +6,7 @@
 {{ $event_start_time := time $event_start_time_string }}
 
 {{ $event_finish_time_string := printf "%sT%s:00" (.ExpiryDate.Format "2006-01-02") ( .Params.finishTime )}}
-{{ $event_finish_time := time $event_start_time_string }}
+{{ $event_finish_time := time $event_finish_time_string }}
 
 {{ $google_start_time_string := $event_start_time.Format "20060102T150405"}}
 {{ $google_finish_time_string := $event_finish_time.Format "20060102T150405"}}
