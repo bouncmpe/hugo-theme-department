@@ -3,13 +3,13 @@
 {{ $event_location := .Params.location | default "Unknown" | markdownify }}
 
 <dl class="row">
-    <dt class="col-sm-3"><small>{{ i18n "who" | title }}</small></dt>
-    <dd class="col-sm-9">{{.Params.speaker}}</dd>
-    <dt class="col-sm-3"><small>{{ i18n "when" | title }}</small></dt>
-    <dd class="col-sm-9">
+    <dt class="col-sm-1"><img src="/icons/person-fill.svg" alt=" person:" width="18" height="18" role="img"></dt>
+    <dd class="col-sm-11">{{.Params.speaker}}</dd>
+    <dt class="col-sm-1"><img src="/icons/clock-fill.svg" alt=" datetime:" width="18" height="18" role="img"></dt>
+    <dd class="col-sm-11">
         <time>{{ time.Format "2 January" $event_start_time }}</time> @
         <time>{{ time.Format "15:04" $event_start_time }}</time>
     </dd>
-    <dt class="col-sm-3"><small>{{ i18n "where" | title }}</small></dt>
-    <dd class="col-sm-9">{{ $event_location }}</dd>
+    <dt class="col-sm-1"><img src="/icons/building.svg" alt=" location:" width="18" height="18" role="img"></dt>
+    <dd class="col-sm-11">{{ $event_location }}</dd>
 </dl>
