@@ -74,16 +74,16 @@ go-to-event-page:
   other: "etkinlik detayları"
 
 full-professor:
-  other: "Prof. Dr."
+  other: "profesör"
 
 associate-professor:
-  other: "Doç. Dr."
+  other: "doçent"
 
 assistant-professor:
-  other: "Dr. Öğr. Üyesi"
+  other: "doktor öğretim üyesi"
 
 doctor:
-  other: Dr.
+  other: doktor
 
 faculty-members:
   other: tam zamanlı öğretim üyeleri
