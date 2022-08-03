@@ -11,13 +11,9 @@
 <div class="card border-0 h-100">
     <img src="{{ $image_path }}" class="card-img-top rounded" alt="...">
     <div class="card-body p-4">
-        <p><small>{{ i18n "news" | upper }}</small></p>
-        <h4 class="card-title">{{ title .Title }}</h4>
-    </div>
-    <div class="card-footer border-0 bg-white text-end">
-        <a href="{{ .RelPermalink }}" class="card-link stretched-link ">
-            <small>{{ i18n "details" | title }}</small>
+        <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none">
+            {{ i18n .Type | upper }}
         </a>
-        {{/*  <img src="/icons/arrow-right.svg" alt="{{ .Title }}" width="16" height="16"> */}}
+        <h4 class="card-title">{{ title .Title }}</h4>
     </div>
 </div>
