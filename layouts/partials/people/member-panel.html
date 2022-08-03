@@ -15,7 +15,9 @@
 {{ $members := $ctx.Get "members" }}
 
 {{ if $members }}
-<h1 class="display-6 mb-4">{{ $title | title }}</h1>
+<h1 class="display-6 mb-4 pt-4" id="{{ .panel.identifier | default $title | anchorize }}">
+    {{ $title | title }}
+</h1>
 <div class="row row-cols-1 row-cols-lg-{{$columns}} g-2 mb-5">
     {{ range $members }}
     <div class="col">
