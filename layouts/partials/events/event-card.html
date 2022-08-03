@@ -1,11 +1,15 @@
-{{ $event_start_time_string := printf "%sT%s:00" (.ExpiryDate.Format "2006-01-02") ( .Params.startTime )}}
-{{ $event_start_time := time $event_start_time_string }}
-
 {{ $event_title := .Params.title }}
 {{ $event_description := .Params.description }}
 {{ $event_location := .Params.location | default "Unknown" }}
 
+{{ $event_start_time_string := printf "%sT%s:00" (.ExpiryDate.Format "2006-01-02") ( .Params.startTime )}}
+{{ $event_start_time := time $event_start_time_string }}
+
+{{ $event_finish_time_string := printf "%sT%s:00" (.ExpiryDate.Format "2006-01-02") ( .Params.finishTime )}}
+{{ $event_finish_time := time $event_start_time_string }}
+
 {{ $google_start_time_string := $event_start_time.Format "20060102T150405"}}
+{{ $google_finish_time_string := $event_finish_time.Format "20060102T150405"}}
 
 <div class="card border-0 h-100 rounded-0 px-3 pt-3 pb-1">
     {{/*  
@@ -13,11 +17,9 @@
         See https://getbootstrap.com/docs/5.2/helpers/stretched-link/#identifying-the-containing-block
     */}}
     <div class="card-body" style="transform: rotate(0);">
-        <p>
-            <a href="{{ .RelPermalink }}" class="stretched-link text-black text-decoration-none">
-                <small>{{ i18n .Type | upper }}</small>
-            </a>
-        </p>
+        <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none">
+            {{ i18n .Type | upper }}
+        </a>
         <h5 class="card-title">{{ title .Title }}</h5>
         <div class="mt-4">
             {{ partial "events/event-info.html" . }}
@@ -25,7 +27,7 @@
         {{/*  <img src="/icons/arrow-right.svg" alt="{{ .Title }}" width="24" height="24"> */}}
     </div>
     <div class="card-footer bg-white text-end">
-        <a href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ i18n .Type | title }} - {{ .Params.speaker }}&dates={{ $google_start_time_string }}/{{ $google_start_time_string }}&details={{$event_title}}&location={{$event_location}}&trp=false&sprop=&sprop=name:"
+        <a href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ i18n .Type | title }} - {{ .Params.speaker }}&dates={{ $google_start_time_string }}/{{ $google_finish_time_string }}&details={{$event_title}}&location={{$event_location}}&trp=false&sprop=&sprop=name:"
             class="card-link" target="_blank" rel="nofollow"><small>{{ i18n "add-calendar" | title }}</small></a>
     </div>
 
