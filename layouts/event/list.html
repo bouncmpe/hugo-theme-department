@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-xl-8 px-3">
+            <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
+            <dl class="row my-5">
+                {{ range $paginator.Pages.ByExpiryDate.Reverse }}
+                <dt class="col-sm-2">
+                    <time>{{ .ExpiryDate.Format "2006-01-02" }}</time>
+                </dt>
+                <dd class="col-sm-10">
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Params.speaker }} - {{ .Title }}
+                    </a>
+                </dd>
+                {{ end }}
+            </dl>
+
+            <nav aria-label="Page navigation example" class="my-5">
+                <ul class="pagination justify-content-center">
+                    {{ range $paginator.Pagers }}
+                    <a href="{{ .URL }}" class="page-link bg-transparent">
+                        {{ .PageNumber }}
+                    </a>
+                    {{ end }}
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+{{ end }}
