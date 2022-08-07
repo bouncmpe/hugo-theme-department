@@ -1,27 +1,59 @@
 {{ define "main" }}
 
-<div class="container">
-  <div class="row">
 
-    <div class="col-xl-4 order-xl-5 offset-xl-1 mb-4">
-      <div class="page-links">
-        <h6>{{ i18n "on-this-page" | title }}</h6>
-        {{ .TableOfContents }}
-      </div>
-      <div class="d-none d-xl-block">
-        {{ partial "edit-this-content.html" . }}
+{{ $image_path := .Params.image_path }}
+{{ $image_resource := 0 }}
+
+{{ if $image_path }}
+{{ $image_resource = resources.Get $image_path }}
+
+{{ if $image_resource }}
+{{ $settings := site.Params.single.image_settings | default "1600x900 webp q90 Smart"}}
+{{ $retouched := $image_resource.Fill $settings }}
+{{ $image_path = $retouched.RelPermalink }}
+{{ end }}
+
+{{ end }}
+
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8">
+        <hgroup class="my-4">
+          <h1 class="display-6">{{ .Title | title }}</h1>
+          <p class="lead">{{ .Description }}</p>
+        </hgroup>
       </div>
     </div>
 
-    <div class="col-xl-6 px-3">
-      <article>
-        <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
-        <div class="content text-left">
-          {{ .Content }}
-        </div>
-      </article>
+    {{ if $image_resource }}
+    <div class="row">
+      <div class="col-xl-10">
+        <figure class="figure my-4">
+          <img src="{{ $image_path }}" class="figure-img img-fluid rounded" alt="...">
+          <figcaption class="figure-caption text-end">{{ .Params.image_caption }}</figcaption>
+        </figure>
+      </div>
     </div>
+    {{ end }}
+
+    <div class="row gx-5">
+      <div class="col-xl-6 mb-4">
+        {{ .Content }}
+      </div>
+      <div class="col-xl-4">
+        {{ with .Params.links }}
+        <h6>{{ i18n "links" | title }}</h6>
+        <ul class="list-group list-group-flush">
+          {{ range . }}
+          <li class="list-group-item bg-light"><a href="{{ .href }}">{{- .text | title -}}</a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </div>
+
   </div>
-</div>
 
+</article>
 {{ end }}
