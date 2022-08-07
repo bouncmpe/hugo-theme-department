@@ -15,9 +15,9 @@
     <div class="row">
         <section id="event-board" class="col-xl-4 order-xl-5 mb-5">
             {{ if $events }}
-            <h1 class="display-6  mb-4">{{ i18n "upcoming-events" | title }}</h1>
+            <h1 class="display-6 my-4">{{ i18n "upcoming-events" | title }}</h1>
             {{ end }}
-            <div class="row row-cols-1 g-2">
+            <div class="row row-cols-1 g-4">
                 {{ range (first 6 $events) }}
                 <div class="col">
                     {{ partial "events/event-card.html" . }}
@@ -26,8 +26,8 @@
             </div>
         </section>
         <section id="newsroom" class="col-xl-8">
-            <h1 class="display-6 mb-4">{{ i18n "latest-news" | title }}</h1>
-            <section id="tier1" class="row mb-3">
+            <h1 class="display-6 my-4">{{ i18n "latest-news" | title }}</h1>
+            <section id="tier1" class="row mb-4">
                 <div class=" col">
                     {{ range $index, $element := first 1 $news }}
                     {{ partial "news/news-card-first.html" . }}
@@ -35,7 +35,7 @@
                 </div>
             </section>
 
-            <section id="tier2" class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+            <section id="tier2" class="row row-cols-1 row-cols-md-2 g-4 mb-4">
                 {{ range $index, $element := first 4 (after 1 $news) }}
                 <div class=" col">
                     {{ partial "news/news-card.html" . }}
@@ -43,7 +43,7 @@
                 {{ end }}
             </section>
 
-            <section id="tier3" class="row row-cols-1 row-cols-md-3 g-1 mb-5">
+            <section id="tier3" class="row row-cols-1 row-cols-md-3 g-4 mb-4">
                 {{ range $index, $element := first 6 (after 5 $news) }}
                 <div class=" col">
                     {{ partial "news/news-card.html" . }}
