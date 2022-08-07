@@ -2,9 +2,9 @@
 {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
 
 <div class="container">
-    <div class="row mb-4">
-        <div class="col-xl-8 px-3">
-            <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
+    <div class="row">
+        <div class="col-xl-8">
+            <h1 class="display-6 my-4">{{ .Title | title }}</h1>
             <dl class="row my-5">
                 {{ range $paginator.Pages.ByDate.Reverse }}
                 <dt class="col-sm-2">

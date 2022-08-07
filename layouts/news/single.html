@@ -12,19 +12,19 @@
 
 <article>
     <div class="container">
-        <div class="row mb-4">
-            <div class="col-xl-8 px-3">
-                <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
-                <p class="lead">
-                    {{ .Description }}
-                <p>
+        <div class="row">
+            <div class="col-xl-8">
+                <hgroup class="my-4">
+                    <h1 class="display-6 ">{{ .Title | title }}</h1>
+                    <p class="lead">{{ .Description }}</p>
+                </hgroup>
             </div>
         </div>
 
         {{ if $image_resource }}
-        <div class="row mb-4">
+        <div class="row">
             <div class="col-xl-10">
-                <figure class="figure">
+                <figure class="figure my-4">
                     <img src="{{ $image_path }}" class="figure-img img-fluid rounded" alt="...">
                     <figcaption class="figure-caption text-end">{{ .Params.image_caption }}</figcaption>
                 </figure>
@@ -32,11 +32,11 @@
         </div>
         {{ end }}
 
-        <div class="row mb-4">
-            <div class="col-xl-6 px-3 mb-4">
+        <div class="row gx-5">
+            <div class="col-xl-6 mb-4">
                 {{ .Content }}
             </div>
-            <div class="col-xl-4 mx-5">
+            <div class="col-xl-4">
                 {{ with .Params.links }}
                 <h6>{{ i18n "links" | title }}</h6>
                 <ul class="list-group list-group-flush">

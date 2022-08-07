@@ -1,7 +1,7 @@
 <article>
     <div class="container">
-        <div class="row mb-4">
-            <div class="col-xl-8 px-3">
+        <div class="row my-4">
+            <div class="col-xl-8">
                 <h1 class="display-6 mb-4">{{ .Title | title }}</h1>
                 <p class="lead">
                     {{ .Description }}
@@ -9,12 +9,12 @@
             </div>
         </div>
         <div class="row mb-4">
-            <div class="col-xl-6 px-3">
+            <div class="col-xl-6">
                 {{ partial "events/event-info.html" . }}
             </div>
         </div>
         <div class="row mb-4">
-            <div class="col-xl-6 px-3 mb-4">
+            <div class="col-xl-6 mb-4">
                 {{ .Content }}
             </div>
             <div class="col-xl-4 mx-5">
