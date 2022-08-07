@@ -1,13 +1,13 @@
 <footer id="site-footer" class="my-5 text-light text-muted">
     <div class="container">
         <div class="row">
-            {{ range site.Params.footer.sections }}
+            {{ range site.Menus.footer }}
             <div class="col-12 col-md-3 mb-3">
-                <h5 class="mb-4">{{- .title | title -}}</h5>
+                <h5 class="mb-4">{{- .Name -}}</h5>
                 <ul class="nav flex-column">
-                    {{ range .links }}
+                    {{ range .Children }}
                     <li class="nav-item mb-2">
-                        <a href="{{ .url }}" class="nav-link p-0 link-light text-muted">{{- .title | title -}}</a>
+                        <a href="{{ .URL }}" class="nav-link p-0 link-light text-muted">{{- .Name -}}</a>
                     </li>
                     {{ end }}
                 </ul>
