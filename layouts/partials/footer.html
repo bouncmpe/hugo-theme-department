@@ -20,7 +20,8 @@
                 {{range site.Params.social }}
                 <li class="ms-3">
                     <a href="{{- .url -}}">
-                        <img src="/icons/{{ .icon }}.svg" alt="{{- .identifier -}}" width="24" height="24">
+                        <img src="{{ site.BaseURL }}/icons/{{ .icon }}.svg" alt="{{- .identifier -}}" width="24"
+                            height="24">
                     </a>
                 </li>
                 {{ end }}
