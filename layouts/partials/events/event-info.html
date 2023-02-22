@@ -3,13 +3,16 @@
 {{ $event_location := .Params.location | default "Unknown" | markdownify }}
 
 <dl class="row">
-    <dt class="col-1"><img src="/icons/person-fill.svg" alt=" person:" width="18" height="18" role="img"></dt>
+    <dt class="col-1"><img src="{{ site.baseURL }}/icons/person-fill.svg" alt=" person:" width="18" height="18"
+            role="img"></dt>
     <dd class="col-11">{{.Params.speaker}}</dd>
-    <dt class="col-1"><img src="/icons/clock-fill.svg" alt=" datetime:" width="18" height="18" role="img"></dt>
+    <dt class="col-1"><img src="{{ site.baseURL }}/icons/clock-fill.svg" alt=" datetime:" width="18" height="18"
+            role="img"></dt>
     <dd class="col-11">
         <time>{{ time.Format "2 January" $event_start_time }}</time> @
         <time>{{ time.Format "15:04" $event_start_time }}</time>
     </dd>
-    <dt class="col-1"><img src="/icons/building.svg" alt=" location:" width="18" height="18" role="img"></dt>
+    <dt class="col-1"><img src="{{ site.baseURL }}/icons/building.svg" alt=" location:" width="18" height="18"
+            role="img"></dt>
     <dd class="col-11">{{ $event_location }}</dd>
 </dl>
