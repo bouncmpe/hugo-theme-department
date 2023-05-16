@@ -9,35 +9,46 @@
 {{ end }}
 
 <div class="card mb-3 border-0 h-100 rounded-3 bg-light">
-    <div class="row g-0">
-        <div class="col-sm-4 d-sm-block">
-            <img src="{{ $image_path }}" alt="{{ .name | anchorize }}" class="img-fluid shadow"
-                style="border-radius: 15px;">
-        </div>
-        <div class="col-sm-8">
-            <div class="card-body m-2">
-                <a href="" class="text-dark text-decoration-none">
-                    <h3>{{ .name | title }}</h3>
-                </a>
-                <p class="mb-2 text-dark lead">
-                    {{ .position | i18n | title }}
-                </p>
-
-                <p class="text-primary">
-                <div>
-                    <img src="{{ site.BaseURL }}/icons/building.svg" alt=" office:" width="18" height="18"
-                        role="img"><small class="text-muted">
-                        {{ .office | default "" |lower }}
-                    </small>
-                </div>
-                <div>
-                    <img src="{{ site.BaseURL }}/icons/envelope-fill.svg" alt=" email:" width="18" height="18"
-                        role="img"><small class="text-muted">
-                        {{ .email | lower }}
-                    </small>
-                </div>
-                </p>
-            </div>
-        </div>
+  <div class="row g-0">
+    <div class="col-sm-4 d-sm-block">
+      <img src="{{ $image_path }}" alt="{{ .name | anchorize }}" class="img-fluid shadow" style="border-radius: 15px;">
     </div>
+    <div class="col-sm-8">
+      <div class="card-body m-2">
+        <a href="" class="text-dark text-decoration-none">
+          <h3>{{ .name | title }}</h3>
+        </a>
+        {{ with .position }}
+        <p class="mb-2 text-dark lead">
+          {{ . | i18n | title }}
+        </p>
+        {{ end }}
+
+        {{ with .tagline }}
+        <p class="mb-2 text-dark lead">
+          {{ . | title }}
+        </p>
+        {{ end }}
+
+        <p class="text-primary">
+        {{ with .location }}
+        <div>
+          <img src="{{ site.BaseURL }}/icons/building.svg" alt=" location:" width="18" height="18" role="img"><small
+            class="text-muted">
+            {{ . | default "" | title }}
+          </small>
+        </div>
+        {{ end }}
+        {{ with .email }}
+        <div>
+          <img src="{{ site.BaseURL }}/icons/envelope-fill.svg" alt=" email:" width="18" height="18" role="img"><small
+            class="text-muted">
+            {{ . | lower }}
+          </small>
+        </div>
+        {{ end }}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

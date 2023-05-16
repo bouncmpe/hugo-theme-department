@@ -1,0 +1,30 @@
+{{ $ctx := newScratch }}
+
+{{ $roles := .Get "roles" }}
+{{ $columns := .Get "columns" | default "2" }}
+
+{{ $ctx.Set "categories" $roles }}
+{{ $ctx.Set "members" slice }}
+{{ range $key, $value := site.Data.people }}
+{{if intersect $value.categories (slice $roles) }}
+{{ $ctx.Set "members" ($ctx.Get "members" | append $value) }}
+{{ end }}
+{{ end }}
+{{ $members := $ctx.Get "members" }}
+
+{{ if .Get "title" }}
+{{ $title := .Get "title" }}
+<h1 class="display-6 my-4" id="{{ $title | anchorize }}">
+    {{ $title | title }}
+</h1>
+{{ end }}
+
+{{ if $members }}
+<div class="row row-cols-1 row-cols-lg-{{$columns}} g-2 mb-5">
+    {{ range $members }}
+    <div class="col">
+        {{ partial "people/member-card" . }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}
