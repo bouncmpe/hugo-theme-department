@@ -9,11 +9,9 @@
 {{ end }}
 
 <div class="card border-0 h-100">
-    <img src="{{ $image_path }}" class="card-img-top rounded" alt="...">
+    <img src="{{ $image_path }}" class="card-img-top" alt="...">
     <div class="card-body">
-        <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none">
-            {{ i18n .Type | upper }}
-        </a>
-        <h4 class="card-title">{{ title .Title }}</h4>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{- i18n .Type | upper -}}</h6>
+        <h4 class="card-title">{{- title .Title -}}</h4>
     </div>
 </div>

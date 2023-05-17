@@ -15,10 +15,8 @@
         </div>
         <div class="col-md-5">
             <div class="card-body">
-                <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none">
-                    {{ i18n .Type | upper }}
-                </a>
-                <h4 class="card-title">{{ title .Title }}</h4>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{- i18n .Type | upper -}}</h6>
+                <h4 class="card-title">{{- title .Title -}}</h4>
             </div>
         </div>
     </div>

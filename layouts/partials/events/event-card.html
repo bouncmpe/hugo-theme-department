@@ -11,23 +11,19 @@
 {{ $google_start_time_string := $event_start_time.Format "20060102T150405"}}
 {{ $google_finish_time_string := $event_finish_time.Format "20060102T150405"}}
 
-<div class="card border-0 h-100 rounded-0 px-3 pt-3 pb-1">
+<div class="card border-0 h-100 rounded-lg p-3">
     {{/*  
         Strecthed link applies to the card body due to a dummy transform property has set. 
         See https://getbootstrap.com/docs/5.2/helpers/stretched-link/#identifying-the-containing-block
     */}}
     <div class="card-body" style="transform: rotate(0);">
-        <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none">
-            {{ i18n .Type | upper }}
-        </a>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{- i18n .Type | upper -}}</h6>
         <h5 class="card-title">{{ title .Title }}</h5>
         <div class="mt-4">
             {{ partial "events/event-info.html" . }}
         </div>
     </div>
-    <div class="card-footer bg-white text-end">
-        <a href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ i18n .Type | title }} - {{ .Params.speaker }}&dates={{ $google_start_time_string }}/{{ $google_finish_time_string }}&details={{$event_title}}&location={{$event_location}}&trp=false&sprop=&sprop=name:"
-            class="card-link" target="_blank" rel="nofollow"><small>{{ i18n "add-calendar" | title }}</small></a>
-    </div>
+    <a href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ i18n .Type | title }} - {{ .Params.speaker }}&dates={{ $google_start_time_string }}/{{ $google_finish_time_string }}&details={{$event_title}}&location={{$event_location}}&trp=false&sprop=&sprop=name:"
+        class="card-link text-end" target="_blank" rel="nofollow"><small>{{ i18n "add-calendar" | title }}</small></a>
 
 </div>
