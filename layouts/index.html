@@ -26,7 +26,9 @@
             </div>
         </section>
         <section id="newsroom" class="col-xl-8">
+            {{ if $news }}
             <h1 class="display-6 my-4">{{ i18n "latest-news" | title }}</h1>
+            {{ end }}
             <section id="tier1" class="row mb-4">
                 <div class=" col">
                     {{ range $index, $element := first 1 $news }}
