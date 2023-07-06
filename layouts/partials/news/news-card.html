@@ -8,10 +8,12 @@
 {{ $image_path = $retouched.RelPermalink }}
 {{ end }}
 
-<div class="card border-0 h-100">
-    <img src="{{ $image_path }}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-body-secondary">{{- i18n .Type | upper -}}</h6>
-        <h4 class="card-title">{{- title .Title -}}</h4>
-    </div>
+<div class="card border-1 h-100 rounded-5">
+  <img src="{{ $image_path }}" class="card-img-top rounded-top-5" alt="...">
+  <div class="card-body p-4">
+    <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none">
+      <h6 class="card-subtitle mb-1 text-body-secondary">{{- i18n .Type | upper -}}</h6>
+    </a>
+    <h4 class="card-title">{{- title .Title -}}</h4>
+  </div>
 </div>

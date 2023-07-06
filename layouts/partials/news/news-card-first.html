@@ -8,7 +8,7 @@
 {{ $image_path = $retouched.RelPermalink }}
 {{ end }}
 
-<div class="card border-0">
+<!-- <div class="card border-0">
     <div class="row g-0">
         <div class="col-md-7">
             <img src="{{ $image_path }}" class="img-fluid rounded-start" alt="{{ .Title }}">
@@ -20,4 +20,12 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="card bg-dark text-white z-index-3 rounded-5">
+  <img src="{{ $image_path }}" class="card-img rounded-5" alt="{{ .Title }}"/>
+  <div class="card-img-overlay d-flex justify-content-end flex-column text-start align-self-end rounded-5 px-4 py-4" style="background-color: rgba(0, 0, 0, 0.1)">
+    <a href="{{ .RelPermalink }}" class="stretched-link text-muted text-decoration-none"></a>
+    <h1 class="card-title fw-bolder" style="text-shadow: 3px 3px 15px black;">{{- title .Title -}}</h1>
+  </div>
 </div>
