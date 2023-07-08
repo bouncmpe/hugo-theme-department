@@ -1,7 +1,5 @@
 {{ define "main" }}
 
-{{ $events := where site.RegularPages.ByExpiryDate "Section" "events" }}
-
 {{ if site.Params.banner.enabled }}
 <section id="site-banner">
     <div class="container">
@@ -12,21 +10,16 @@
 
 <div class="container">
     <div class="row">
-        <section id="event-board" class="col-xl-4 order-xl-5 mb-5">
-            {{ if $events }}
-                <h1 class="display-6 my-4">{{ i18n "upcoming-events" | title }}</h1>
+        <div class="col-xl-4 order-xl-5 mb-5">
+            {{ if site.Params.eventBoard.enabled }}
+                {{ partial "event-board.html" . }}
             {{ end }}
-            <div class="row row-cols-1 g-4">
-                {{ range (first 6 $events) }}
-                    <div class="col">
-                        {{ partial "events/event-card.html" . }}
-                    </div>
-                {{end}}
-            </div>
-        </section>
-        {{ if site.Params.newsroom.enabled }}
-            {{ partial "newsroom.html" . }}
-        {{ end }}
+        </div>
+        <div class="col-xl-8">
+            {{ if site.Params.newsroom.enabled }}
+                {{ partial "newsroom.html" . }}
+            {{ end }}
+        </div>
     </div>
 </div>
 
