@@ -1,0 +1,5 @@
+params:
+  newsroom:
+    enabled: true
+  eventBoard:
+    enabled: true
