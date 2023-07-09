@@ -1,6 +1,6 @@
 {{ $menu_name := "main"}}
 
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light d-none d-lg-block">
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             {{ $current := . }}
@@ -79,19 +79,7 @@
                 </a>
             </li>
             {{ end }}
-
             {{ end }}
         </ul>
     </div>
 </nav>
-
-{{/*  {{ range site.Menus.main }}
-<ul class="d-block">
-    <li>
-        {{ .Name }}
-        {{ range .Children }}
-        {{ . }}
-        {{ end }}
-    </li>
-</ul>
-{{ end }} */}}
