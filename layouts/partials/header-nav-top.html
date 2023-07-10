@@ -10,34 +10,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-primary">
     <div class="container">
         <a class="navbar-brand" href="{{ "" | relLangURL }}">		
-            <img class="logo me-4" src="{{ $image_path }}" width="40px" height="40px">
+            <img class="logo" src="{{ $image_path }}" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
         </a>
-        <a class="navbar-brand d-block d-lg-none" href="#">{{ site.Params.logo_text_main }}</a>
-        {{ if .Site.IsMultiLingual }}
-        {{ $siteLanguages := .Site.Languages}}
-        {{ $pageLang := .Page.Lang}}
-        <div>
-            {{ range .Page.AllTranslations }}
-            {{ $translation := .}}
-            {{ range $siteLanguages }}
-            {{ if eq $translation.Lang .Lang }}
-                {{ $selected := false }}
-                {{ if eq $pageLang .Lang}}
-                <a class="btn btn-sm btn-info" href="{{ $translation.RelPermalink }}" role="button">{{ .Lang | upper }}</a>
-                {{ else }}
-                <a class="btn btn-sm btn-outline-secondary" href="{{ $translation.RelPermalink }}" role="button">{{ .Lang | upper }}</a>
-                {{ end }}
-            {{ end }}
-            {{ end }}
-            {{ end }}
-        </div>
-        {{ end }}
+        <!-- <a class="navbar-brand d-block d-lg-none text-truncate" style="max-width: 180px;" href="#">{{ site.Params.logo_text_main }}</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end bg-primary text-light" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{ site.Params.logo_text_main }}</h5>
+                {{ if .Site.IsMultiLingual }}
+                {{ $siteLanguages := .Site.Languages}}
+                {{ $pageLang := .Page.Lang}}
+                <div>
+                    {{ range .Page.AllTranslations }}
+                    {{ $translation := .}}
+                    {{ range $siteLanguages }}
+                    {{ if eq $translation.Lang .Lang }}
+                        {{ $selected := false }}
+                        {{ if eq $pageLang .Lang}}
+                        <a class="btn btn-sm btn-info" href="{{ $translation.RelPermalink }}" role="button">{{ .Lang | upper }}</a>
+                        {{ else }}
+                        <a class="btn btn-sm btn-outline-secondary" href="{{ $translation.RelPermalink }}" role="button">{{ .Lang | upper }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+                </div>
+                {{ end }}
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
             <div class="offcanvas-body">
@@ -66,14 +65,33 @@
                     {{ end }}
                     {{ end }}
                 </ul>
-                <ul class="navbar-nav navbar-dark justify-content-end px-4">
+                <ul class="navbar-nav navbar-dark justify-content-end px-4 d-none d-lg-flex">
                     {{ range .Site.Menus.top }}
                     <li class="nav-item menu-item mx-1">
                         <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
                     </li>
                     {{end}}
                 </ul>
-            </div>
+            </div>            
         </div>
+        {{ if .Site.IsMultiLingual }}
+        {{ $siteLanguages := .Site.Languages}}
+        {{ $pageLang := .Page.Lang}}
+        <div class="d-none d-lg-block">
+            {{ range .Page.AllTranslations }}
+            {{ $translation := .}}
+            {{ range $siteLanguages }}
+            {{ if eq $translation.Lang .Lang }}
+                {{ $selected := false }}
+                {{ if eq $pageLang .Lang}}
+                <a class="btn btn-sm btn-info" href="{{ $translation.RelPermalink }}" role="button">{{ .Lang | upper }}</a>
+                {{ else }}
+                <a class="btn btn-sm btn-outline-secondary" href="{{ $translation.RelPermalink }}" role="button">{{ .Lang | upper }}</a>
+                {{ end }}
+            {{ end }}
+            {{ end }}
+            {{ end }}
+        </div>
+        {{ end }}
     </div>
 </nav>
