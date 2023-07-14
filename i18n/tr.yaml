@@ -114,3 +114,124 @@ course-credits:
 
 course-ects:
   other: AKTS kredisi
+
+# arXiv cs categories in Turkish
+cs.AI:
+  Yapay Zeka
+
+cs.AR:
+  Donanım Mimarisi
+
+cs.CC:
+  Hesaplama Karmaşıklığı
+
+cs.CE:
+  Bilgisayar Mühendisliği, Finans ve Bilim
+
+cs.CG:
+  Hesaplamalı Geometri
+
+cs.CL:
+  Hesaplama ve Dil
+
+cs.CR:
+  Kriptografi ve Güvenlik
+
+cs.CV:
+  Bilgisayar Görüşü ve Desen Tanıma
+
+cs.CY:
+  Bilgisayarlar ve Toplum
+
+cs.DB:
+  Veritabanları
+
+cs.DC:
+  Dağıtık, Paralel ve Küme Bilgi İşlem
+
+cs.DL:
+  Sayısal Kütüphaneler
+
+cs.DM:
+  Ayrık Matematik
+
+cs.DS:
+  Veri Yapıları ve Algoritmalar
+
+cs.ET:
+  Yeni Teknolojiler
+
+cs.FL:
+  Biçimsel Diller ve Otomat Teorisi
+
+cs.GL:
+  Genel Literatür
+
+cs.GR:
+  Grafikler
+
+cs.GT:
+  Bilgisayar Bilimleri ve Oyun Teorisi
+
+cs.HC:
+  İnsan-Bilgisayar Etkileşimi
+
+cs.IR:
+  Bilgi Çekme
+
+cs.IT:
+  Bilgi Kuramı
+
+cs.LG:
+  Makine Öğrenimi
+
+cs.LO:
+  Bilgisayar Bilimleri Mantığı
+
+cs.MA:
+  Çoklu Ajan Sistemleri
+
+cs.MM:
+  Çoklu Ortam
+
+cs.MS:
+  Matematiksel Yazılım
+
+cs.NA:
+  Sayısal Analiz
+
+cs.NE:
+  Sinir ve Evrimsel Hesaplama
+
+cs.NI:
+  Ağ ve İnternet Mimarisi
+
+cs.OH:
+  Diğer Bilgisayar Bilimleri
+
+cs.OS:
+  İşletim Sistemleri
+
+cs.PF:
+  Performans
+
+cs.PL:
+  Programlama Dilleri
+
+cs.RO:
+  Robotik
+
+cs.SC:
+  Sembolik Hesaplama
+
+cs.SD:
+  Ses
+
+cs.SE:
+  Yazılım Mühendisliği
+
+cs.SI:
+  Sosyal ve Bilgi Ağları
+
+cs.SY:
+  Sistem ve Kontrol
