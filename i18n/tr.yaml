@@ -115,6 +115,34 @@ course-credits:
 course-ects:
   other: AKTS kredisi
 
+# research labs
+ailab:
+  other: "Yapay Zeka Laboratuvarı (AILAB)"
+
+caslab:
+  other: "Bilgisayar Mimarisi ve Sistemleri Laboratuvarı (CASLAB)"
+
+colors:
+  other: "Algı, Öğrenme ve Robotik Laboratuvarı (CoLoRs Lab)"
+
+medialab:
+  other: "Medya Laboratuvarı (MEDIALAB)"
+
+netlab:
+  other: "Bilgisayar Ağları Laboratuvarı (NETLAB)"
+
+pilab:
+  other: "Algısal Zeka Laboratuvarı (PILAB)"
+
+satlab:
+  other: "Uydu Ağları Araştırma Laboratuvarı (SATLAB)"
+
+soslab:
+  other: "Karmaşık Sistemler Laboratuvarı (SOSLAB)"
+
+tabilab:
+  other: "Yazı Analitiği ve Biyoinformatik Laboratuvarı (TABILAB)"
+
 # arXiv cs categories in Turkish
 cs.AI:
   Yapay Zeka

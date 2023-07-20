@@ -121,6 +121,34 @@ course-credits:
 course-ects:
   other: ects
 
+# research labs
+ailab:
+  other: "Artificial Intelligence Laboratory (AILAB)"
+
+caslab:
+  other: "Computer Architecture and Systems Laboratory (CASLAB)"
+
+colors:
+  other: "Cognition, Learning and Robotics Laboratory (CoLoRs Lab)"
+
+medialab:
+  other: "Media Laboratory (MEDIALAB)"
+
+netlab:
+  other: "Computer Networks Laboratory (NETLAB)"
+
+pilab:
+  other: "Perceptual Intelligence Laboratory (PILAB)"
+
+satlab:
+  other: "Satellite Networks Research Laboratory (SATLAB)"
+
+soslab:
+  other: "Complex Systems Research Laboratory (SOSLAB)"
+
+tabilab:
+  other: "Text Analytics and BioInformatics Laboratory (TABILAB)"
+
 # arXiv cs categories
 cs.AI:
   Artificial Intelligence
